@@ -10,7 +10,7 @@ import 'dart:io';
 
 -------Funções com retorno sem parámetros
 -------Ela não tem parametros mas retorna algo (normalmente quase sempre retorna a mesma coisa)
--------Voce quer manipular o valor mas sem passar nd
+-------Voce quer manipular o valor mas sem passar
 
 -------Funções com retorno e om parametros:
 -------Quando ela aprecisa saber as informações e operar usando isso

@@ -6,16 +6,12 @@ void main() {
   runApp(const MyApp());
 }
 
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: TelaHome(),
-
-    );
+    return MaterialApp(home: TelaHome());
   }
 }
 
@@ -24,31 +20,65 @@ class TelaHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(//prove os componentes para a minha tela
-
-      theme: ThemeData( 
-        textTheme: GoogleFonts.aclonicaTextTheme(),
-      ),
+    return MaterialApp(
+      //prove os componentes para a minha tela
+      theme: ThemeData(textTheme: GoogleFonts.aclonicaTextTheme()),
       debugShowCheckedModeBanner: false, //tirar a fita debug
-      home: Scaffold(//separa a tela entre appbar e body
-        appBar: AppBar(title: Text("Tela Assests")), //barra superior 
-        body: Center( //ajuda a centralizar
-          child: Column( // elementos um abaixo do outro
-              children: [ //varios filhos
-                Image.network("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqRcQH4JIuXXAcg8EDCq42WBYpv_EQiwAKrA&s"),
-                Image.asset('assets/images/imagem.jfif', width: 200,),
-                Text("Teste de fonte"),
-                // Text("Esse é o texto com a fonte baixada", style: TextStyle(fontFamily: "kauan"),),
-                // Text("Esse é o texto com biblioteca", style: GoogleFonts.aboreto(),),
-                Text("Esse é o texto com a fonte baixada",),
-                Text("Esse é o texto com biblioteca"),
-                ElevatedButton(onPressed: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>Tela2()));
-                }, child: Icon(Icons.play_arrow_sharp ))
-              ],
-          ),
-        ) ,
+      home: Scaffold(
+        //separa a tela entre appbar e body
+        appBar: AppBar(
+          toolbarHeight: 100,
+          centerTitle: true,
+          title: 
+            Text("Kauan Afonso", style: GoogleFonts.licorice(textStyle: TextStyle(fontSize: 50), color: Colors.white,) ),  
+          backgroundColor: Color(0xFF131515),
+        ), //barra superior
+        backgroundColor: Color(0xFF1A1A1A),
+        body:
+         DefaultTextStyle(style: TextStyle(color: Colors.white), child: 
+         Center(
+          //ajuda a centralizar
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.end, // empurra o conteúdo para baixo
+            crossAxisAlignment: CrossAxisAlignment.center,
+            // elementos um abaixo do outro
+            children: [
+              //varios filhos
+              Text("Backend", style: GoogleFonts.bebasNeue(textStyle: TextStyle(fontSize: 100), fontWeight: FontWeight.bold), ),
+              Text("Developer", style: GoogleFonts.bebasNeue(textStyle: TextStyle(fontSize: 160), fontWeight: FontWeight.bold ), ),             
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Tela2()),
+                  );
+                },
+                child: Icon(Icons.play_arrow_sharp),
+              ),
 
+            SizedBox(height: 50,),
+            
+            Container(
+              width: 600,
+              height: 600,
+              decoration: BoxDecoration(
+                color: Color.from(alpha: 0.82, red: 1, green: 1, blue: 1), // cor de fundo
+                borderRadius: BorderRadius.circular(20), // bordas arredondadas
+              ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: Image.asset(
+                  'assets/images/kauan.png',
+                  fit: BoxFit.cover,
+                ),
+              ),
+            )
+
+
+            ],
+          ),
+        ),
+         ),
       ),
     );
   }

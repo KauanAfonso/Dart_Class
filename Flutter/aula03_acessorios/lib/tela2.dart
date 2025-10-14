@@ -54,7 +54,7 @@ class _Tela2State extends State<Tela2> {
   Widget build(BuildContext context) {
 
     //Pegando os dados do projeto atual
-    String projetcName = myProjects[currentIndex][0];
+    String projectName = myProjects[currentIndex][0];
     String projectDescription = myProjects[currentIndex][1];
     String projectLink = myProjects[currentIndex][2];
     String projecImage = myProjects[currentIndex][3];
@@ -87,15 +87,23 @@ class _Tela2State extends State<Tela2> {
                   Image.asset(projecImage, width: 600),
                     Column(
                       children: [
-                            Text("Nome: $projetcName"),
+                            Text(
+                              "Nome: $projectName",
+                              style:TextStyle(
+                                fontSize: 20,           // tamanho da fonte
+                                color: Colors.black87,  // cor do texto
+                              ),
+                            ),
+                            const SizedBox(height: 8),   // espaçamento entre textos
                             Text("Descrição: $projectDescription"),
-                            
+                            SizedBox(height: 10,),
                             GestureDetector(
                               onTap: (){
                                 _launchURLBrowser("$projectLink");
                               }
                               ,
-                              child:Text("Link: Clique aqui"),
+                             
+                              child:Text("Clique aqui para conferir !", style: TextStyle(color: Colors.blue,)),
 
                             )
                       ],

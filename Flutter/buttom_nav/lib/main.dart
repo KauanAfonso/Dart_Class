@@ -1,3 +1,6 @@
+import 'package:buttom_nav/home.dart';
+import 'package:buttom_nav/tela2.dart';
+import 'package:buttom_nav/tela3.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -44,8 +47,12 @@ class _NavBarState extends State<NavBar> {
       home: Scaffold(
         body: screens.elementAt(currentIndex),
         bottomNavigationBar: BottomNavigationBar(items:<BottomNavigationBarItem>[
-
-        ]
+            BottomNavigationBarItem(label: "Tela 1", icon: Icon(Icons.account_circle)),
+            BottomNavigationBarItem(label: "Tela 2", icon: Icon(Icons.account_circle)),
+            BottomNavigationBarItem(label: "Tela 3", icon: Icon(Icons.account_circle)),
+        ],
+        currentIndex: currentIndex, //a posicao desejada
+        onTap: changeIndex, //funcao que muda o index
         ),
       ),
     );

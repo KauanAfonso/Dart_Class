@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:loginapp/api.dart';
+import 'package:loginapp/apiall.dart';
 
 void main() {
   runApp(const MyApp());
@@ -98,7 +99,17 @@ class _LoginPageState extends State<LoginPage> {
                 ElevatedButton(onPressed: login, child:Text("Login"), style: ElevatedButton.styleFrom(
                   padding: EdgeInsets.symmetric(horizontal: 100, vertical: 20)
                 ) ),
-                Text(erro)
+                Text(erro),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => ApiAll()),
+                    );
+                  },
+                  child: Text("API ALL"),
+                )
+
             ],
           ),
         ),
